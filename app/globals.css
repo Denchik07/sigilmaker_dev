@@ -3,16 +3,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ---------- Основная схема ---------- */
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -26,4 +21,110 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
 }
+
+/* ---------- Tailwind темы ---------- */
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* ========================================
+   ======== М O B I L E   F I X E S ========
+   ======================================== */
+
+@media (max-width: 768px) {
+
+  /* Контейнер с настройками */
+  .controls-container {
+    width: 100%;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* Поле ввода текста */
+  .text-input {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  /* Слайдеры — в столбик */
+  .sliders-group {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+  }
+
+  /* Цветовые инпуты — тоже в столбик */
+  .colors-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  /* Чекбоксы — также вниз, в столбик */
+  .checkbox-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 14px;
+  }
+
+  /* Кнопки уменьшенные */
+  .menu-button {
+    padding: 6px 12px !important;
+    font-size: 14px !important;
+  }
+
+  /* Группа кнопок экспорта */
+  .action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  /* Превью — никогда не выходит за экран */
+  .preview-wrapper {
+    width: 100% !important;
+    max-width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+  }
+
+  .preview-wrapper svg {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100%;
+  }
+
+  /* Верхнее меню — автоуменьшение */
+  .top-menu {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .top-menu > * {
+    flex: 1 0 30%;
+  }
+}
+
+/* ========================================
+   ======== С Т И Л И   С Л А Й Д Е Р О В ===
+   ======================================== */
+
+input[type="range"] {
+  accent-color: #ff3b3b; /* красный слайдер */
+}
+
